@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b9e700c-f2be-4735-8e8a-5efe058f3259" name="Changes" comment="New IDEA project">
-      <change afterPath="$PROJECT_DIR$/test/StringCalculatorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/string-calculator.iml" beforeDir="false" afterPath="$PROJECT_DIR$/string-calculator.iml" afterDir="false" />
+    <list default="true" id="5b9e700c-f2be-4735-8e8a-5efe058f3259" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/StringCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StringCalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/StringCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/StringCalculatorTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,11 +34,20 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="StringCalculatorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="string-calculator" />
@@ -68,7 +80,21 @@
       <option name="project" value="LOCAL" />
       <updated>1665225419616</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Return zero for empty string">
+      <created>1665225924938</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1665225924938</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Return a single number">
+      <created>1665226231704</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1665226231704</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -84,6 +110,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New IDEA project" />
-    <option name="LAST_COMMIT_MESSAGE" value="New IDEA project" />
+    <MESSAGE value="Return zero for empty string" />
+    <MESSAGE value="Return a single number" />
+    <option name="LAST_COMMIT_MESSAGE" value="Return a single number" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/test/StringCalculatorTest.java</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

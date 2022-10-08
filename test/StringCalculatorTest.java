@@ -19,4 +19,9 @@ public class StringCalculatorTest {
     public void addsTwoCommaSeparatedNumbers() {
         assertEquals(42, calc.add("40,2"));
     }
+
+    @Test
+    public void addsMultipleCommaSeparatedNumbers() {
+        assertEquals(42, calc.add("20,2,14,6"));
+    }
 }

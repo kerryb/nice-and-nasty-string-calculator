@@ -11,10 +11,16 @@ public class StringCalculator {
                     throw new RuntimeException("Input is invalid");
                 }
             } else {
-                String first = input.substring(0, index);
-                String second = input.substring(index + 1);
                 try {
-                    return Integer.parseInt(first) + Integer.parseInt(second);
+                    String remainingInput = input;
+                    int sum = 0;
+                    int commaIndex;
+                    while (remainingInput.contains(",")) {
+                        commaIndex = remainingInput.indexOf(",");
+                        sum += Integer.parseInt(remainingInput.substring(0, commaIndex));
+                        remainingInput = remainingInput.substring(commaIndex + 1);
+                    }
+                    return sum + Integer.parseInt(remainingInput);
                 } catch (NumberFormatException e) {
                     throw new RuntimeException("Input is invalid");
                 }

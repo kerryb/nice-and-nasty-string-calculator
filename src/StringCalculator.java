@@ -3,10 +3,15 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         } else if (input.contains(",")) {
-            int index = input.indexOf(",");
-            String first = input.substring(0, index);
-            String second = input.substring(index + 1);
-            return Integer.parseInt(first) + Integer.parseInt(second);
+            String remainingInput = input;
+            int sum = 0;
+            int index;
+            while (remainingInput.contains(",")) {
+                index = remainingInput.indexOf(",");
+                sum += Integer.parseInt(remainingInput.substring(0, index));
+                remainingInput = remainingInput.substring(index + 1);
+            }
+            return sum + Integer.parseInt(remainingInput);
         } else {
             return Integer.parseInt(input);
         }

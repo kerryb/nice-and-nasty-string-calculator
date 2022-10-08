@@ -39,11 +39,15 @@ public class StringCalculator {
                 }
                 remainingInput = remainingInput.substring(index + 1);
             }
+            int lastNumber = Integer.parseInt(remainingInput);
+            if (lastNumber < 0) {
+                invalid.add(lastNumber);
+            }
             if (invalid.isEmpty()) {
-                return sum + Integer.parseInt(remainingInput);
+                return sum + lastNumber;
             } else {
                 StringBuilder message = new StringBuilder("Negatives not allowed: ");
-                for(int i = 0; i < invalid.size(); i++) {
+                for (int i = 0; i < invalid.size(); i++) {
                     if (i > 0) {
                         message.append(", ");
                     }

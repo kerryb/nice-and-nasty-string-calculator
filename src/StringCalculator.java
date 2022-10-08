@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class StringCalculator {
     public int add(String input) {
         String remainingInput;
@@ -17,6 +20,7 @@ public class StringCalculator {
             return sum + Integer.parseInt(remainingInput);
         } else if (input.contains(",") || input.contains("\n")) {
             remainingInput = input;
+            List<Integer> invalid = new ArrayList<>();
             while (remainingInput.contains(",") || remainingInput.contains("\n")) {
                 commaIndex = remainingInput.indexOf(",");
                 newlineIndex = remainingInput.indexOf("\n");
@@ -27,10 +31,26 @@ public class StringCalculator {
                 } else {
                     index = Integer.min(commaIndex, newlineIndex);
                 }
-                sum += Integer.parseInt(remainingInput.substring(0, index));
+                int number = Integer.parseInt(remainingInput.substring(0, index));
+                if (number < 0) {
+                    invalid.add(number);
+                } else {
+                    sum += number;
+                }
                 remainingInput = remainingInput.substring(index + 1);
             }
-            return sum + Integer.parseInt(remainingInput);
+            if (invalid.isEmpty()) {
+                return sum + Integer.parseInt(remainingInput);
+            } else {
+                StringBuilder message = new StringBuilder("Negatives not allowed: ");
+                for(int i = 0; i < invalid.size(); i++) {
+                    if (i > 0) {
+                        message.append(", ");
+                    }
+                    message.append(invalid.get(i));
+                }
+                throw new RuntimeException(message.toString());
+            }
         } else {
             return Integer.parseInt(input);
         }

@@ -3,7 +3,11 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         } else {
-            throw new RuntimeException("Input is invalid");
+            try {
+                return Integer.parseInt(input);
+            } catch (NumberFormatException e) {
+                throw new RuntimeException("Input is invalid");
+            }
         }
     }
 }

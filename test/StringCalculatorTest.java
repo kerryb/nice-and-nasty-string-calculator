@@ -14,4 +14,9 @@ public class StringCalculatorTest {
     void returnsTheNumberForASingleNumber() {
         assertEquals(42, calc.add("42"));
     }
+
+    @Test
+    void addsTwoCommaSeparatedNumbers() {
+        assertEquals(42, calc.add("40,2"));
+    }
 }

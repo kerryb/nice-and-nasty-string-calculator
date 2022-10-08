@@ -9,4 +9,9 @@ public class StringCalculatorTest {
     void returnsZeroForEmptyString() {
         assertEquals(0, calc.add(""));
     }
+
+    @Test
+    void returnsTheNumberForASingleNumber() {
+        assertEquals(42, calc.add("42"));
+    }
 }

@@ -1,7 +1,18 @@
 public class StringCalculator {
     public int add(String input) {
+        String remainingInput;
         if (input.isEmpty()) {
             return 0;
+        } else if (input.startsWith("//")) {
+            String delimiter = input.substring(2, 3);
+            remainingInput = input.substring(4);
+            int sum = 0;
+            while (remainingInput.contains(delimiter)) {
+                int index = remainingInput.indexOf(delimiter);
+                sum += Integer.parseInt(remainingInput.substring(0, index));
+                remainingInput = remainingInput.substring(index + 1);
+            }
+            return sum + Integer.parseInt(remainingInput);
         } else {
             int index = input.indexOf(",");
             if (index == -1) {
@@ -12,7 +23,7 @@ public class StringCalculator {
                 }
             } else {
                 try {
-                    String remainingInput = input;
+                    remainingInput = input;
                     int sum = 0;
                     int commaIndex, newlineIndex;
                     while (remainingInput.contains(",") || remainingInput.contains("\n")) {

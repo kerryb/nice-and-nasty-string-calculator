@@ -16,7 +16,7 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void addsTwoCommaSeparatedNumbers() {
-        assertEquals(42, calc.add("40,2"));
+    public void addsCommaSeparatedNumbers() {
+        assertEquals(42, calc.add("20,2,6,14"));
     }
 }

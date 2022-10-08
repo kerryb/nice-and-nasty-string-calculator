@@ -24,4 +24,9 @@ public class StringCalculatorTest {
     public void addsMultipleCommaSeparatedNumbers() {
         assertEquals(42, calc.add("20,2,14,6"));
     }
+
+    @Test
+    public void addsNewlineAndCommaSeparatedNumbers() {
+        assertEquals(42, calc.add("20\n2,6\n14"));
+    }
 }

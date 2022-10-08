@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5b9e700c-f2be-4735-8e8a-5efe058f3259" name="Changes" comment="Return sum of any number of comma-separated numbers">
+    <list default="true" id="5b9e700c-f2be-4735-8e8a-5efe058f3259" name="Changes" comment="Allow newline as a separator">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StringCalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StringCalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/StringCalculatorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/StringCalculatorTest.java" afterDir="false" />
@@ -123,7 +123,14 @@
       <option name="project" value="LOCAL" />
       <updated>1665233390613</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Allow newline as a separator">
+      <created>1665235506228</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1665235506228</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -143,7 +150,8 @@
     <MESSAGE value="Return a single number" />
     <MESSAGE value="Return sum of two comma-separated numbers" />
     <MESSAGE value="Return sum of any number of comma-separated numbers" />
-    <option name="LAST_COMMIT_MESSAGE" value="Return sum of any number of comma-separated numbers" />
+    <MESSAGE value="Allow newline as a separator" />
+    <option name="LAST_COMMIT_MESSAGE" value="Allow newline as a separator" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

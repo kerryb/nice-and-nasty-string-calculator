@@ -1,4 +1,7 @@
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class StringCalculator {
 
@@ -27,6 +30,17 @@ public class StringCalculator {
     }
 
     private static int addWithDelimiter(String input, String regex) {
-        return Arrays.stream(input.split(regex)).mapToInt((s) -> Integer.parseInt(s)).sum();
+        int[] numbers = Arrays.stream(input.split(regex)).mapToInt((s) -> Integer.parseInt(s)).toArray();
+        validate(numbers);
+        return Arrays.stream(numbers).sum();
+    }
+
+    private static void validate(int[] numbers) {
+        int[] negatives = Arrays.stream(numbers).filter((n) -> n < 0).toArray();
+        if (negatives.length > 0) {
+            throw new RuntimeException("Negatives not allowed: " + Arrays.stream(negatives)
+                    .mapToObj((n) -> Integer.toString(n))
+                    .collect(Collectors.joining(", ")));
+        }
     }
 }

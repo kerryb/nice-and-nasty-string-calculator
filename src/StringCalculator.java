@@ -6,13 +6,15 @@ public class StringCalculator {
             return 0;
         } else if (input.startsWith("//")) {
             String delimiter = input.substring(2, 3);
-            return Arrays.stream(input.substring(4).split(delimiter))
-                    .mapToInt((s) -> Integer.parseInt(s))
-                    .sum();
+            return sumWithDelimiter(input.substring(4), delimiter);
         } else {
-            return Arrays.stream(input.split("[,\n]"))
-                    .mapToInt((s) -> Integer.parseInt(s))
-                    .sum();
+            return sumWithDelimiter(input, "[,\n]");
         }
+    }
+
+    private static int sumWithDelimiter(String input, String regex) {
+        return Arrays.stream(input.split(regex))
+                .mapToInt((s) -> Integer.parseInt(s))
+                .sum();
     }
 }

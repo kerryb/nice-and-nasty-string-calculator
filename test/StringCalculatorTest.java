@@ -29,4 +29,9 @@ public class StringCalculatorTest {
     void addsMixedCommaAndNewlineSeparatedNumbers() {
         assertEquals(42, calc.add("20,2\n6,14"));
     }
+
+    @Test
+    void addsNumbersWithCustomDelimiter() {
+        assertEquals(42, calc.add("//:\n20:2:6:14"));
+    }
 }

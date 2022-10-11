@@ -30,7 +30,7 @@ public class StringCalculator {
     }
 
     private static int addWithDelimiter(String input, String regex) {
-        int[] numbers = Arrays.stream(input.split(regex)).mapToInt((s) -> Integer.parseInt(s)).toArray();
+        int[] numbers = Arrays.stream(input.split(regex)).mapToInt(Integer::parseInt).toArray();
         validate(numbers);
         return Arrays.stream(numbers).sum();
     }
@@ -39,7 +39,7 @@ public class StringCalculator {
         int[] negatives = Arrays.stream(numbers).filter((n) -> n < 0).toArray();
         if (negatives.length > 0) {
             throw new RuntimeException("Negatives not allowed: " + Arrays.stream(negatives)
-                    .mapToObj((n) -> Integer.toString(n))
+                    .mapToObj(Integer::toString)
                     .collect(Collectors.joining(", ")));
         }
     }

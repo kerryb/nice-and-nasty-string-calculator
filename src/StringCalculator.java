@@ -37,8 +37,9 @@ public class StringCalculator {
     }
 
     private static void validate(List<Integer> numbers) {
-        if (numbers.stream().anyMatch((n) -> n < 0)) {
-            throw new RuntimeException("Negatives not allowed: " + numbers);
+        var negatives = numbers.stream().filter((n) -> n < 0).toList();
+        if (negatives.size() > 0) {
+            throw new RuntimeException("Negatives not allowed: " + negatives);
         }
     }
 }

@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StringCalculator {
 
@@ -20,8 +21,8 @@ public class StringCalculator {
     }
 
     private static int addWithCustomDelimiter(String input) {
-        String delimiter = input.substring(2, 3);
-        String actualInput = input.substring(4);
+        var delimiter = input.substring(2, 3);
+        var actualInput = input.substring(4);
         return addWithDelimiter(actualInput, delimiter);
     }
 
@@ -30,17 +31,15 @@ public class StringCalculator {
     }
 
     private static int addWithDelimiter(String input, String regex) {
-        int[] numbers = Arrays.stream(input.split(regex)).mapToInt((s) -> Integer.parseInt(s)).toArray();
+        var numbers = Stream.of(input.split(regex)).map(Integer::valueOf).toList();
         validate(numbers);
-        return Arrays.stream(numbers).sum();
+        return numbers.stream().reduce(0, Integer::sum);
     }
 
-    private static void validate(int[] numbers) {
-        int[] negatives = Arrays.stream(numbers).filter((n) -> n < 0).toArray();
-        if (negatives.length > 0) {
-            throw new RuntimeException("Negatives not allowed: " + Arrays.stream(negatives)
-                    .mapToObj((n) -> Integer.toString(n))
-                    .collect(Collectors.joining(", ")));
+    private static void validate(List<Integer> numbers) {
+        var negatives = numbers.stream().filter((n) -> n < 0).toList();
+        if (negatives.size() > 0) {
+            throw new RuntimeException("Negatives not allowed: " + negatives);
         }
     }
 }

@@ -21,8 +21,8 @@ public class StringCalculator {
     }
 
     private static int addWithCustomDelimiter(String input) {
-        String delimiter = input.substring(2, 3);
-        String actualInput = input.substring(4);
+        var delimiter = input.substring(2, 3);
+        var actualInput = input.substring(4);
         return addWithDelimiter(actualInput, delimiter);
     }
 
@@ -31,7 +31,7 @@ public class StringCalculator {
     }
 
     private static int addWithDelimiter(String input, String regex) {
-        List<Integer> numbers = Stream.of(input.split(regex)).map(Integer::valueOf).toList();
+        var numbers = Stream.of(input.split(regex)).map(Integer::valueOf).toList();
         validate(numbers);
         return numbers.stream().reduce(0, Integer::sum);
     }

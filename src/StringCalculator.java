@@ -49,6 +49,10 @@ public class StringCalculator {
                             remainingInput = remainingInput.substring(newlineIndex + 1);
                         }
                     }
+                    int remainingNumber = Integer.parseInt(remainingInput);
+                    if (remainingNumber < 1) {
+                        invalid.add(remainingNumber);
+                    }
                     if (!invalid.isEmpty()) {
                         StringBuilder message = new StringBuilder("Negatives not allowed: ");
                         for (int i = 0; i < invalid.size(); i++) {
@@ -59,7 +63,7 @@ public class StringCalculator {
                         }
                         throw new RuntimeException(message.toString());
                     }
-                    return sum + Integer.parseInt(remainingInput);
+                    return sum + remainingNumber;
                 } catch (NumberFormatException e) {
                     throw new RuntimeException("Input is invalid");
                 }

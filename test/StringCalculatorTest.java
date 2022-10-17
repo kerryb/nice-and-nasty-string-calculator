@@ -41,4 +41,10 @@ public class StringCalculatorTest {
         RuntimeException e = assertThrows(RuntimeException.class, () -> calc.add("42,-2\n-10,1"));
         assertEquals("Negatives not allowed: -2, -10", e.getMessage());
     }
+
+    @Test
+    public void rejectsNegativeNumbersIncludingTheLastOne() {
+        RuntimeException e = assertThrows(RuntimeException.class, () -> calc.add("42,-2,-10,-1"));
+        assertEquals("Negatives not allowed: -2, -10, -1", e.getMessage());
+    }
 }

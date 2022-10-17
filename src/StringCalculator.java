@@ -10,12 +10,31 @@ public class StringCalculator {
             String delimiter = input.substring(2, 3);
             remainingInput = input.substring(4);
             int sum = 0;
+            List<Integer> invalid = new ArrayList<Integer>();
             while (remainingInput.contains(delimiter)) {
                 int index = remainingInput.indexOf(delimiter);
-                sum += Integer.parseInt(remainingInput.substring(0, index));
+                int number = Integer.parseInt(remainingInput.substring(0, index));
+                if (number < 1) {
+                    invalid.add(number);
+                }
+                sum += number;
                 remainingInput = remainingInput.substring(index + 1);
             }
-            return sum + Integer.parseInt(remainingInput);
+            int remainingNumber = Integer.parseInt(remainingInput);
+            if (remainingNumber < 1) {
+                invalid.add(remainingNumber);
+            }
+            if (!invalid.isEmpty()) {
+                StringBuilder message = new StringBuilder("Negatives not allowed: ");
+                for (int i = 0; i < invalid.size(); i++) {
+                    if (i > 0) {
+                        message.append(", ");
+                    }
+                    message.append(invalid.get(i));
+                }
+                throw new RuntimeException(message.toString());
+            }
+            return sum + remainingNumber;
         } else {
             int index = input.indexOf(",");
             if (index == -1) {

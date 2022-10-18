@@ -7,13 +7,15 @@ public class StringCalculator {
             return 0;
         } else if (input.startsWith("//")) {
             var delimiter = input.substring(2, 3);
-            return Stream.of(input.substring(4).split(delimiter))
-                    .map(Integer::valueOf)
-                    .reduce(0, Integer::sum);
+            return sumWithDelimiter(input.substring(4), delimiter);
         } else {
-            return Stream.of(input.split("[,\\n]"))
-                    .map(Integer::valueOf)
-                    .reduce(0, Integer::sum);
+            return sumWithDelimiter(input, "[,\\n]");
         }
+    }
+
+    private int sumWithDelimiter(String input, String regex) {
+        return Stream.of(input.split(regex))
+                .map(Integer::valueOf)
+                .reduce(0, Integer::sum);
     }
 }

@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,6 +27,11 @@ public class StringCalculator {
         var numbers = Stream.of(input.split(regex))
                 .map(Integer::valueOf)
                 .toList();
+        validate(numbers);
+        return numbers.stream().reduce(0, Integer::sum);
+    }
+
+    private void validate(List<Integer> numbers) {
         var negatives = numbers.stream().filter((n) -> n < 0).toList();
         if (negatives.size() > 0) {
             throw new RuntimeException("Negatives not allowed: "
@@ -33,6 +39,5 @@ public class StringCalculator {
                     .map(String::valueOf)
                     .collect(Collectors.joining(", ")));
         }
-        return numbers.stream().reduce(0, Integer::sum);
     }
 }

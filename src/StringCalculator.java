@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StringCalculator {
@@ -22,8 +23,16 @@ public class StringCalculator {
     }
 
     private int sumWithDelimiter(String input, String regex) {
-        return Stream.of(input.split(regex))
+        var numbers = Stream.of(input.split(regex))
                 .map(Integer::valueOf)
-                .reduce(0, Integer::sum);
+                .toList();
+        var negatives = numbers.stream().filter((n) -> n < 0).toList();
+        if (negatives.size() > 0) {
+            throw new RuntimeException("Negatives not allowed: "
+                    + negatives.stream()
+                    .map(String::valueOf)
+                    .collect(Collectors.joining(", ")));
+        }
+        return numbers.stream().reduce(0, Integer::sum);
     }
 }

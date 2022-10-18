@@ -5,11 +5,15 @@ public class StringCalculator {
     public int add(String input) {
         if (input.isEmpty()) {
             return 0;
-        } else if (input.startsWith("//")) {
+        } else if (hasCustomDelimiter(input)) {
             return sumWithCustomDelimiter(input);
         } else {
             return sumWithDelimiter(input, "[,\\n]");
         }
+    }
+
+    private boolean hasCustomDelimiter(String input) {
+        return input.startsWith("//");
     }
 
     private int sumWithCustomDelimiter(String input) {

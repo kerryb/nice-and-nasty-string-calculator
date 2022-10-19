@@ -39,7 +39,11 @@ public class StringCalculator {
             int index = input.indexOf(",");
             if (index == -1) {
                 try {
-                    return Integer.parseInt(input);
+                    int number = Integer.parseInt(input);
+                    if (number < 0) {
+                        throw new RuntimeException("Negatives not allowed: " + number);
+                    }
+                    return number;
                 } catch (NumberFormatException e) {
                     throw new RuntimeException("Input is invalid");
                 }

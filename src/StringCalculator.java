@@ -3,10 +3,21 @@ public class StringCalculator {
         if (input.isEmpty()) {
             return 0;
         } else {
-            try {
-                return Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                throw new RuntimeException("Input is invalid");
+            int index = input.indexOf(",");
+            if (index == -1) {
+                try {
+                    return Integer.parseInt(input);
+                } catch (NumberFormatException e) {
+                    throw new RuntimeException("Input is invalid");
+                }
+            } else {
+                String first = input.substring(0, index);
+                String second = input.substring(index + 1);
+                try {
+                    return Integer.parseInt(first) + Integer.parseInt(second);
+                } catch (NumberFormatException e) {
+                    throw new RuntimeException("Input is invalid");
+                }
             }
         }
     }
